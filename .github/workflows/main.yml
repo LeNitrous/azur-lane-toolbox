@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      run: |
+        sh ./deploy.sh
