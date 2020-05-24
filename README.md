@@ -1,24 +1,13 @@
-# azur-lane-toolbox
+# Azur Lane Command Room
+Welcome to the Azur Lane Command Room. This is a website to help commanders with various tools and references for the mobile game Azur Lane.
 
-## Project setup
-```
-npm install
-```
+## Contributing
+Contributions are welcome. To start, please fork the master branch of this repository and make a new branch at your fork before committing any changes and sending a pull request.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+You are required to have NodeJS installed. Then install all required dependencies. To test local changes, you can run this in your terminal.
 
-### Compiles and minifies for production
 ```
-npm run build
+$ npm run serve
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For suggestions or issues with the command room, please open a new issue.
