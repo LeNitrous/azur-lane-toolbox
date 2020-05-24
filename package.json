@@ -25,13 +25,22 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "eslint:recommended"
     ],
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "indent": [
+        "warn",
+        4
+      ],
+      "vue/html-indent": [
+        "warn",
+        4
+      ]
+    }
   },
   "browserslist": [
     "> 1%",
