@@ -1,27 +1,76 @@
 <template>
     <div>
-        <section class="hero has-background is-medium">
+        <section class="hero is-small">
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title">
-                        Azur Lane Command Room
-                    </h1>
+                    <img src="../assets/images/icon.png">
+                    <p class="subtitle">
+                        Command Room
+                    </p>
                 </div>
             </div>
         </section>
         <div class="columns is-centered">
-            <div class="column is-6">
+            <div 
+                class="column 
+                        is-10-widescreen
+                        is-8-fullhd"
+            >
                 <section class="section">
-                    <div class="container has-text-centered">
+                    <div class="container notice has-text-centered">
                         <b-icon
-                            pack="fas"
                             icon="exclamation-triangle"
-                            size="is-large"
                             type="is-warning"
                         />
-                        <p>
-                            <b>Work in Progress!</b>
-                        </p>
+                        <p>Work in Progress!</p>
+                    </div>
+                    <div class="grid-container">
+                        <div class="a menu-button jumbo disabled">
+                            <div class="inner">
+                                <p>Ships</p>
+                            </div>
+                        </div>
+                        <div class="b menu-button jumbo disabled">
+                            <div class="inner">
+                                <p>Equipment</p>
+                            </div>
+                        </div>
+                        <div class="c menu-button disabled">
+                            <div class="inner">
+                                <p>Meowfficers</p>
+                            </div>
+                        </div>
+                        <div class="d menu-button disabled">
+                            <div class="inner">
+                                <p>Campaign</p>
+                            </div>
+                        </div>
+                        <div class="e menu-button disabled">
+                            <div class="inner">
+                                <p>Gallery</p>
+                            </div>
+                        </div>
+                        <div class="f menu-button disabled">
+                            <div class="inner">
+                                <p>Memories</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-reversed-mobile">
+                        <div class="column is-three-quarters">
+                            <p>created by @LeNitrous</p>
+                        </div>
+                        <div class="column">
+                            <b-button
+                                type="is-primary"
+                                icon-left="code"
+                                tag="a"
+                                href="https://github.com/lenitrous/azur-lane-toolbox/"
+                                expanded
+                            >
+                                View Source
+                            </b-button>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -30,16 +79,134 @@
 </template>
 
 <style lang="scss" scoped>
-.hero {
-    &.has-background {
-        background: 
-            linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 20%),
-            url("../assets/images/bg_night.png") no-repeat fixed 50%;
-        background-size: cover;
+.grid-container {
+    display: grid;
+    margin-bottom: 1em;
+    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-rows: 2fr repeat(3, 0.7fr);
+    gap: 1em 1em;
+    grid-template-areas:    "b a"
+                            "c a"
+                            "d a"
+                            "e f";
+
+    .a { 
+        grid-area: a;
+        background-image: url("../assets/images/bg_button_ships.png");
+        background-position-x: 75%;
     }
 
-    .title {
+    .b {
+        grid-area: b;
+        background-image: url("../assets/images/bg_button_equipment.png");
+        background-position: center;
+    }
+
+    .c {
+        grid-area: c;
+        background-image: url("../assets/images/bg_button_meowfficers.png");
+    }
+
+    .d {
+        grid-area: d;
+        background-image: url("../assets/images/bg_button_campaign.png");
+        background-position: 4rem 20%;
+    }
+
+    .e {
+        grid-area: e;
+        background-image: url("../assets/images/bg_button_gallery.png");
+        background-position: 4rem 20%;
+    }
+
+    .f {
+        grid-area: f;
+        background-image: url("../assets/images/bg_button_memories.png");
+        background-position: 8rem 20%;
+    }
+
+    .menu-button {
+        position: relative;
+        padding: 3rem 1rem;
+        background-color: rgb(55, 73, 128);
+        background-size: cover;
+        background-repeat: no-repeat;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+
+        .inner {
+            display: table;
+            position: absolute;
+            color: white;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, rgb(55, 73, 128) 25%, transparent 75%);
+            border-spacing: 1.5rem 0;
+
+            p {
+                height: 100%;
+                display: table-cell;
+                vertical-align: middle;
+                font-weight: 600;
+                font-size: 18px;
+            }
+        }
+
+        &.jumbo {
+            position: relative;
+
+            .inner {
+                position: absolute;
+                top: 70%;
+                height: 40px;
+            }
+        }
+
+        &:hover:not(.disabled) {
+            outline: rgba(0, 0, 0, 0.3) solid 3px;
+        }
+
+        &.disabled {
+            filter: grayscale(100%);
+            cursor: default;
+        }
+    }
+}
+
+.hero {
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    img {
+        margin-top: 2rem;
+    }
+
+    .subtitle {
         color: white;
+        font-weight: 300;
+    }
+}
+
+.notice {
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr repeat(5, 1fr);
+        gap: 1em 1em;
+        grid-template-areas: "a" "b" "c" "d" "e" "f";
+    }
+
+    .is-reversed-mobile {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
 </style>

@@ -3,10 +3,13 @@ import App from './App.vue'
 import Buefy from 'buefy'
 import router from './router'
 import 'buefy/dist/buefy.css'
+import './assets/styles/main.scss'
 
 Vue.config.productionTip = false
 
-Vue.use(Buefy)
+Vue.use(Buefy, {
+    defaultIconPack: 'fas'
+})
 
 new Vue({
     router,
