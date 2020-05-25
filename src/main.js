@@ -13,5 +13,13 @@ Vue.use(Buefy, {
 
 new Vue({
     router,
-    render: function (h) { return h(App) }
+    created: function () {
+        // This will allow history mode to work with GitHub Pages.
+        if (sessionStorage.redirect) {
+            const redirect = sessionStorage.redirect
+            delete sessionStorage.redirect
+            this.$router.push(redirect)
+        }
+    },
+    render: function (h) { return h(App) },
 }).$mount('#app')
