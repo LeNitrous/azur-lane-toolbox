@@ -58,17 +58,28 @@
                     </div>
                     <div class="columns is-reversed-mobile">
                         <div class="column is-three-quarters">
-                            <p>created by @LeNitrous</p>
+                            <p>created by <a href="https://twitter.com/lenitrous">@LeNitrous</a></p>
                         </div>
-                        <div class="column">
+                        <div class="column navigation">
                             <b-button
+                                class="has-text-right"
                                 type="is-primary"
-                                icon-left="code"
+                                icon-right="code"
                                 tag="a"
                                 href="https://github.com/lenitrous/azur-lane-toolbox/"
                                 expanded
                             >
                                 View Source
+                            </b-button>
+                            <b-button
+                                class="has-text-right"
+                                type="is-info"
+                                icon-right="heart"
+                                tag="a"
+                                href="https://ko-fi.com/W7W71CF9V"
+                                expanded
+                            >
+                                Support
                             </b-button>
                         </div>
                     </div>
@@ -138,7 +149,6 @@
         .inner {
             display: table;
             position: absolute;
-            color: white;
             width: 100%;
             height: 100%;
             top: 0;
@@ -150,8 +160,7 @@
                 height: 100%;
                 display: table-cell;
                 vertical-align: middle;
-                font-weight: 600;
-                font-size: 18px;
+                font-size: 20px;
             }
         }
 
@@ -185,14 +194,16 @@
     }
 
     .subtitle {
-        color: white;
         font-weight: 300;
     }
 }
 
 .notice {
     margin-bottom: 1.5rem;
-    color: white;
+}
+
+.navigation * {
+    margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {

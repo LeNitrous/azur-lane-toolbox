@@ -1,3 +1,25 @@
+@import "~bulma/sass/utilities/functions";
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+
+$family-sans-serif: "Jura", sans-serif;
+
+$primary: #374980;
+
+$link: lighten($primary, 30%);
+$link-hover: lighten($primary, 20%);
+$radius: 0;
+$text: white;
+$text-light: white;
+$text-strong: white;
+$text-invert: black;
+
+$title-color: white;
+$subtitle-color: white;
+
+@import "~bulma/sass/utilities/_all";
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
 html {
     overflow: hidden auto;
 }
@@ -6,4 +28,14 @@ body {
     background: url("../images/bg_main_day.png") no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.button {
+    &.has-text-left {
+        justify-content: flex-start;
+    }
+
+    &.has-text-right {
+        justify-content: flex-end;
+    }
 }
