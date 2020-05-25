@@ -42,10 +42,4 @@
         color: white;
     }
 }
-
-.section {
-    &.is-pushed-up {
-        margin-top: -9rem;
-    }
-}
 </style>
