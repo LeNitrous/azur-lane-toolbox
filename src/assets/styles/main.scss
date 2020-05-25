@@ -25,9 +25,21 @@ html {
 }
 
 body {
-    background: url("../images/bg_main_day.png") no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+
+    &.day {
+        background-image: url("../images/bg_main_day.png");
+    }
+
+    &.twilight {
+        background-image: url("../images/bg_main_twilight.png");
+    }
+
+    &.night {
+        background-image: url("../images/bg_main_night.png");
+    }
 }
 
 .button {

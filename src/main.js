@@ -19,6 +19,14 @@ new Vue({
             delete sessionStorage.redirect
             this.$router.push(redirect)
         }
+
+        const now = new Date().getHours();
+        if (now > 7 || now < 15)
+            document.body.classList.add("day")
+        else if (now > 19 || now < 5)
+            document.body.classList.add("night")
+        else
+            document.body.classList.add("twilight");
     },
     render: function (h) { return h(App) },
 }).$mount('#app')
