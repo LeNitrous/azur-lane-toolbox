@@ -159,7 +159,6 @@
             position: relative;
 
             .inner {
-                position: absolute;
                 top: 70%;
                 height: 40px;
             }
@@ -207,6 +206,13 @@
     .is-reversed-mobile {
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    .menu-button.jumbo.b {
+        .inner {
+            top: 0;
+            height: 100%;
+        }
     }
 }
 </style>
