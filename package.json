@@ -19,7 +19,6 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
-    "prettier": "^2.0.5",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-buefy": "^0.3.7",
     "vue-template-compiler": "^2.6.11"
@@ -40,12 +39,16 @@
       "indent": [
         "warn",
         4,
-        { "SwitchCase": 1 }
+        {
+          "SwitchCase": 1
+        }
       ],
       "quotes": [
         "error",
         "double",
-        { "avoidEscape": true }
+        {
+          "avoidEscape": true
+        }
       ],
       "vue/html-indent": [
         "warn",

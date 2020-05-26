@@ -32,12 +32,12 @@ jobs:
 
     - name: Build if inspect passes
       if: steps.wait-for-inspect.outputs.conclusion == 'success'
-      steps:
 
-      - run: npm ci
-      - run: npm run build
+      run: |
+        npm ci
+        npm run build
 
-      - name: Deploy to GitHub Pages
+      name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
