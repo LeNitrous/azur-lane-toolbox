@@ -25,34 +25,14 @@
                         <p>Work in Progress!</p>
                     </div>
                     <div class="grid-container">
-                        <div class="a menu-button jumbo disabled">
+                        <div
+                            v-for="[key, value] in Object.entries(menu)"
+                            :key="key"
+                            :class="{ 'menu-button': true, disabled: value.disabled, jumbo: key == 'a' || key == 'b', [key]: true, [value.name.toLowerCase()]: true }"
+                            :style="{ ...value.styling }"
+                        >
                             <div class="inner">
-                                <p>Ships</p>
-                            </div>
-                        </div>
-                        <div class="b menu-button jumbo disabled">
-                            <div class="inner">
-                                <p>Equipment</p>
-                            </div>
-                        </div>
-                        <div class="c menu-button disabled">
-                            <div class="inner">
-                                <p>Meowfficers</p>
-                            </div>
-                        </div>
-                        <div class="d menu-button disabled">
-                            <div class="inner">
-                                <p>Campaign</p>
-                            </div>
-                        </div>
-                        <div class="e menu-button disabled">
-                            <div class="inner">
-                                <p>Gallery</p>
-                            </div>
-                        </div>
-                        <div class="f menu-button disabled">
-                            <div class="inner">
-                                <p>Memories</p>
+                                <p>{{ value.name }}</p>
                             </div>
                         </div>
                     </div>
@@ -89,6 +69,60 @@
     </div>
 </template>
 
+<script>
+export default {
+    data: function() {
+        return {
+            menu: {
+                "a": {
+                    name: "Ships",
+                    disabled: true,
+                    styling: {
+                        backgroundPositionX: "100%"
+                    }
+                },
+                "b": {
+                    name: "Equipment",
+                    disabled: true,
+                    styling: {
+                        backgroundPosition: "center"
+                    }
+                },
+                "c": {
+                    name: "Meowfficers",
+                    disabled: true,
+                    styling: {}
+                },
+                "d": {
+                    name: "Campaign",
+                    disabled: true,
+                    styling: {
+                        backgroundPositionX: "4rem",
+                        backgroundPositionY: "20%"
+                    }
+                },
+                "e": {
+                    name: "Gallery",
+                    disabled: true,
+                    styling: {
+                        backgroundPositionX: "4rem",
+                        backgroundPositionY: "20%"
+                    }
+                },
+                "f": {
+                    name: "Memories",
+                    disabled: true,
+                    styling: {
+                        backgroundPositionX: "8rem",
+                        backgroundPositionY: "20%"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+
 <style lang="scss" scoped>
 .grid-container {
     display: grid;
@@ -101,40 +135,19 @@
                             "d a"
                             "e f";
 
-    .a { 
-        grid-area: a;
-        background-image: url("../assets/images/bg_button_ships.png");
-        background-position-x: 75%;
-    }
+    .a { grid-area: a; }
+    .b { grid-area: b; }
+    .c { grid-area: c; }
+    .d { grid-area: d; }
+    .e { grid-area: e; }
+    .f { grid-area: f; }
 
-    .b {
-        grid-area: b;
-        background-image: url("../assets/images/bg_button_equipment.png");
-        background-position: center;
-    }
-
-    .c {
-        grid-area: c;
-        background-image: url("../assets/images/bg_button_meowfficers.png");
-    }
-
-    .d {
-        grid-area: d;
-        background-image: url("../assets/images/bg_button_campaign.png");
-        background-position: 4rem 20%;
-    }
-
-    .e {
-        grid-area: e;
-        background-image: url("../assets/images/bg_button_gallery.png");
-        background-position: 4rem 20%;
-    }
-
-    .f {
-        grid-area: f;
-        background-image: url("../assets/images/bg_button_memories.png");
-        background-position: 8rem 20%;
-    }
+    .ships { background-image: url("../assets/images/bg_button_ships.png") }
+    .equipment { background-image: url("../assets/images/bg_button_equipment.png") }
+    .meowfficers { background-image: url("../assets/images/bg_button_meowfficers.png") }
+    .campaign { background-image: url("../assets/images/bg_button_campaign.png") }
+    .gallery { background-image: url("../assets/images/bg_button_gallery.png") }
+    .memories { background-image: url("../assets/images/bg_button_memories.png") }
 
     .menu-button {
         position: relative;
