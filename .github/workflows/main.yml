@@ -28,7 +28,7 @@ jobs:
       id: wait-for-inspect
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: Lint
+        checkName: lint
 
     - name: Build
       if: steps.wait-for-inspect.outputs.conclusion == 'success'
