@@ -1,9 +1,9 @@
-import Vue from "vue"
-import VueRouter from "vue-router"
-import Home from "../views/Home.vue"
-import NotFound from "../views/NotFound.vue"
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import NotFound from "../views/NotFound.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 const router = new VueRouter({
     routes: [
         {
@@ -17,6 +17,6 @@ const router = new VueRouter({
             component: NotFound
         }
     ]
-})
+});
 
-export default router
+export default router;

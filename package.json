@@ -36,6 +36,11 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "semi": [
+        "error",
+        "always",
+        { "omitLastInOneLineBlock": true }
+      ],
       "indent": [
         "warn",
         4,
