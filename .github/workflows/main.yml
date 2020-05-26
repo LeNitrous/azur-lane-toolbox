@@ -30,13 +30,14 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         checkName: Lint
 
-    - name: Deploy to GitHub Pages on passing
+    - name: Build
       if: steps.wait-for-inspect.outputs.conclusion == 'success'
-
       run: |
         npm ci
         npm run build
 
+    - name: Deploy to GitHub Pages
+      if: steps.wait-for-inspect.outputs.conclusion == 'success'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
