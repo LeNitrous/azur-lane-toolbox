@@ -4,5 +4,6 @@ module.exports = {
         : "/",
     devServer: {
         proxy: "https://azur-lane-api.glitch.me/"
-    }
+    },
+    productionSourceMap: false
 }
