@@ -7,15 +7,6 @@
         <link rel="icon" href="<%= BASE_URL %>favicon.ico">
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
         <title><%= htmlWebpackPlugin.options.title %></title>
-        <script type="text/javascript">
-            (function(){
-                var redirect = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redirect && redirect != location.href) {
-                    history.replaceState(null, null, redirect);
-                }
-            })();
-        </script>
     </head>
     <body>
         <noscript>
