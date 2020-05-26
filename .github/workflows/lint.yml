@@ -16,7 +16,8 @@ jobs:
       - run: npm ci
 
       - name: Code Inspection
-        uses: tinovyatkin/action-eslint@v1
+        uses: tsamuelmeuli/lint-action@v1
         with:
-          repo-token: ${{ secrets.GH_TOKEN }}
-          check-name: eslint
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          eslint: true
+          prettier: true

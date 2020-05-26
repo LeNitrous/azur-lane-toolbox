@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Buefy from 'buefy'
-import router from './router'
-import './assets/styles/main.scss'
+import Vue from "vue"
+import App from "./App.vue"
+import Buefy from "buefy"
+import router from "./router"
+import "./assets/styles/main.scss"
 
 Vue.config.productionTip = false
 
 Vue.use(Buefy, {
-    defaultIconPack: 'fas'
+    defaultIconPack: "fas"
 })
 
 new Vue({
@@ -29,4 +29,4 @@ new Vue({
             document.body.classList.add("twilight");
     },
     render: function (h) { return h(App) },
-}).$mount('#app')
+}).$mount("#app")
