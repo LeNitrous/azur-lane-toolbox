@@ -19,5 +19,5 @@ new Vue({
         else
             document.body.classList.add("twilight");
     },
-    render: function (h) { return h(App) },
+    render: function (h) { return h(App) }
 }).$mount("#app");

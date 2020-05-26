@@ -36,6 +36,10 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "comma-dangle": [
+        "warn",
+        "never"
+      ],
       "semi": [
         "error",
         "always",
