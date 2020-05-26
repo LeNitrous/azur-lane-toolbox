@@ -1,4 +1,4 @@
-name: CI
+name: Build
 on:
   push:
     branches:
@@ -23,11 +23,22 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - run: npm ci
-    - run: npm run build
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Wait for code inspection
+      uses: fountainhead/action-wait-for-check@v1.0.0
+      id: wait-for-inspect
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkName: Lint
+
+    - name: Build if inspect passes
+      if: steps.wait-for-inspect.outputs.conclusion == 'success'
+      steps:
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
