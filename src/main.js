@@ -13,12 +13,6 @@ Vue.use(Buefy, {
 new Vue({
     router,
     created: function () {
-        if (sessionStorage.redirect) {
-            const redirect = sessionStorage.redirect
-            delete sessionStorage.redirect
-            this.$router.push(redirect)
-        }
-        
         const now = new Date().getHours();
         if (now > 7 || now < 15)
             document.body.classList.add("day")

@@ -6,6 +6,7 @@ import NotFound from "../views/NotFound.vue"
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode: "history",
+    base: "/azur-lane-toolbox/",
     routes: [
         {
             path: "/",
