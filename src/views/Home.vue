@@ -28,8 +28,12 @@
                         <div
                             v-for="[key, value] in Object.entries(menu)"
                             :key="key"
-                            :class="{ 'menu-button': true, disabled: value.disabled, jumbo: key == 'a' || key == 'b', [key]: true, [value.name.toLowerCase()]: true }"
-                            :style="{ ...value.styling }"
+                            :class="{ 
+                                'menu-button': true, disabled: value.disabled,
+                                jumbo: key == 'a' || key == 'b',
+                                [key]: true,
+                                [value.name.toLowerCase()]: true 
+                            }"
                         >
                             <div class="inner">
                                 <p>{{ value.name }}</p>
@@ -74,49 +78,12 @@ export default {
     data: function() {
         return {
             menu: {
-                "a": {
-                    name: "Ships",
-                    disabled: true,
-                    styling: {
-                        backgroundPositionX: "100%"
-                    }
-                },
-                "b": {
-                    name: "Equipment",
-                    disabled: true,
-                    styling: {
-                        backgroundPosition: "center"
-                    }
-                },
-                "c": {
-                    name: "Meowfficers",
-                    disabled: true,
-                    styling: {}
-                },
-                "d": {
-                    name: "Campaign",
-                    disabled: true,
-                    styling: {
-                        backgroundPositionX: "4rem",
-                        backgroundPositionY: "20%"
-                    }
-                },
-                "e": {
-                    name: "Gallery",
-                    disabled: true,
-                    styling: {
-                        backgroundPositionX: "4rem",
-                        backgroundPositionY: "20%"
-                    }
-                },
-                "f": {
-                    name: "Memories",
-                    disabled: true,
-                    styling: {
-                        backgroundPositionX: "8rem",
-                        backgroundPositionY: "20%"
-                    }
-                }
+                "a": { name: "Ships", disabled: true },
+                "b": { name: "Equipment", disabled: true },
+                "c": { name: "Meowfficers", disabled: true },
+                "d": { name: "Campaign", disabled: true },
+                "e": { name: "Gallery", disabled: true },
+                "f": { name: "Memories", disabled: true }
             }
         };
     }
@@ -142,12 +109,34 @@ export default {
     .e { grid-area: e; }
     .f { grid-area: f; }
 
-    .ships { background-image: url("../assets/images/bg_button_ships.png") }
-    .equipment { background-image: url("../assets/images/bg_button_equipment.png") }
-    .meowfficers { background-image: url("../assets/images/bg_button_meowfficers.png") }
-    .campaign { background-image: url("../assets/images/bg_button_campaign.png") }
-    .gallery { background-image: url("../assets/images/bg_button_gallery.png") }
-    .memories { background-image: url("../assets/images/bg_button_memories.png") }
+    .ships {
+        background-image: url("../assets/images/bg_button_ships.png");
+        background-position-x: 100%;
+    }
+
+    .equipment {
+        background-image: url("../assets/images/bg_button_equipment.png");
+        background-position: center;
+    }
+
+    .meowfficers {
+        background-image: url("../assets/images/bg_button_meowfficers.png");
+    }
+
+    .campaign {
+        background-image: url("../assets/images/bg_button_campaign.png");
+        background-position: 4rem 20%;
+    }
+
+    .gallery {
+        background-image: url("../assets/images/bg_button_gallery.png");
+        background-position: 4rem 20%;
+    }
+
+    .memories {
+        background-image: url("../assets/images/bg_button_memories.png");
+        background-position: 8rem 20%;
+    }
 
     .menu-button {
         position: relative;
