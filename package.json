@@ -36,9 +36,28 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "comma-dangle": [
+        "warn",
+        "never"
+      ],
+      "semi": [
+        "error",
+        "always",
+        { "omitLastInOneLineBlock": true }
+      ],
       "indent": [
         "warn",
-        4
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "quotes": [
+        "error",
+        "double",
+        {
+          "avoidEscape": true
+        }
       ],
       "vue/html-indent": [
         "warn",

@@ -1,16 +1,44 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import Passthrough from "../views/Passthrough.vue";
+import NotFound from "../views/NotFound.vue";
 
-Vue.use(VueRouter)
-const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    }
-]
+Vue.use(VueRouter);
+const router = new VueRouter({
+    routes: [
+        {
+            path: "/",
+            name: "home",
+            component: Home
+        },
+        {
+            path: "/ships",
+            name: "ships",
+            component: Passthrough,
+            children: [
+                {
+                    path: "search",
+                    component: () => import("../views/Search/Ships.vue"),
+                    meta: { title: "Search Ships" }
+                }
+            ]
+        },
+        {
+            path: "*",
+            name: "404",
+            component: NotFound,
+            meta: { title: "Not Found" }
+        }
+    ]
+});
 
-const router = new VueRouter({ routes })
+const MAIN_TITLE = "Azur Lane Command Room";
 
-export default router
+router.afterEach((to) => {
+    Vue.nextTick(() => {
+        document.title = (to.meta.title) ? MAIN_TITLE + ` | ${to.meta.title}` : MAIN_TITLE;
+    });
+});
+
+export default router;

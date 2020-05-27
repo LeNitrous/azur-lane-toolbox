@@ -1,0 +1,83 @@
+@import "~bulma/sass/utilities/functions";
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+
+$family-sans-serif: "Jura", sans-serif;
+
+$primary: #374980;
+
+$link: lighten($primary, 30%);
+$link-hover: lighten($primary, 20%);
+
+$radius: 0;
+$radius-large: $radius;
+
+$text: white;
+$text-light: white;
+$text-strong: white;
+$text-invert: black;
+
+$navbar-dropdown-offset: 8px;
+$navbar-dropdown-border-top: 0px;
+$navbar-dropdown-background-color: $primary;
+$navbar-dropdown-item-hover-color: $primary;
+$navbar-dropdown-item-hover-background-color: $link-hover;
+
+$title-color: white;
+$subtitle-color: white;
+
+.navbar-menu {
+    background-color: $primary !important;
+    
+    .navbar-item, .navbar-item a {
+        color: $text;
+    }
+
+    .navbar-item a:hover {
+        color: $primary;
+    }
+}
+
+@import "~bulma/sass/utilities/_all";
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+html {
+    overflow: hidden auto;
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &.day {
+        background-image: url("../images/bg_main_day.png");
+    }
+
+    &.twilight {
+        background-image: url("../images/bg_main_twilight.png");
+    }
+
+    &.night {
+        background-image: url("../images/bg_main_night.png");
+    }
+}
+
+.button {
+    &.has-text-left {
+        justify-content: flex-start;
+    }
+
+    &.has-text-right {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .columns.is-reversed-mobile {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
