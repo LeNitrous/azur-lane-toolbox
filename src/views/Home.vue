@@ -17,13 +17,6 @@
                         is-8-fullhd"
             >
                 <section class="section">
-                    <div class="container notice has-text-centered">
-                        <b-icon
-                            icon="exclamation-triangle"
-                            type="is-warning"
-                        />
-                        <p>Work in Progress!</p>
-                    </div>
                     <div class="grid-container">
                         <div
                             v-for="[key, value] in Object.entries(menu)"
@@ -44,7 +37,7 @@
                         <div class="column is-three-quarters">
                             <p>created by <a href="https://twitter.com/lenitrous">@LeNitrous</a></p>
                         </div>
-                        <div class="column navigation">
+                        <div class="column buttons">
                             <b-button
                                 class="has-text-right"
                                 type="is-primary"
@@ -200,11 +193,7 @@ export default {
     }
 }
 
-.notice {
-    margin-bottom: 1.5rem;
-}
-
-.navigation * {
+.buttons * {
     margin-bottom: 0.5rem;
 }
 

@@ -10,6 +10,9 @@
                         src="./assets/images/icon.png"
                         alt="Azur Lane Command Room"
                     >
+                    <b-tag type="is-warning">
+                        Beta
+                    </b-tag>
                 </b-navbar-item>
             </template>
             <template slot="start">
@@ -33,3 +36,9 @@
         <router-view />
     </div>
 </template>
+
+<style lang="scss" scoped>
+.navbar-brand img {
+    margin-right: 0.5rem;
+}
+</style>
