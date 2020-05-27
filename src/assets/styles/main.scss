@@ -43,9 +43,11 @@ $subtitle-color: white;
 
 html {
     overflow: hidden auto;
+    min-height: 100vh;
 }
 
 body {
+    min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -70,5 +72,12 @@ body {
 
     &.has-text-right {
         justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .columns.is-reversed-mobile {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
