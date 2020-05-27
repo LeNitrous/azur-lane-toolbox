@@ -205,11 +205,6 @@ export default {
         grid-template-areas: "a" "b" "c" "d" "e" "f";
     }
 
-    .is-reversed-mobile {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
     .menu-button.jumbo.b {
         .inner {
             top: 0;
