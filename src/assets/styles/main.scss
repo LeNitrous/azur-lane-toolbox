@@ -7,14 +7,35 @@ $primary: #374980;
 
 $link: lighten($primary, 30%);
 $link-hover: lighten($primary, 20%);
+
 $radius: 0;
+$radius-large: $radius;
+
 $text: white;
 $text-light: white;
 $text-strong: white;
 $text-invert: black;
 
+$navbar-dropdown-offset: 8px;
+$navbar-dropdown-border-top: 0px;
+$navbar-dropdown-background-color: $primary;
+$navbar-dropdown-item-hover-color: $primary;
+$navbar-dropdown-item-hover-background-color: $link-hover;
+
 $title-color: white;
 $subtitle-color: white;
+
+.navbar-menu {
+    background-color: $primary !important;
+    
+    .navbar-item, .navbar-item a {
+        color: $text;
+    }
+
+    .navbar-item a:hover {
+        color: $primary;
+    }
+}
 
 @import "~bulma/sass/utilities/_all";
 @import "~bulma";
