@@ -88,10 +88,10 @@ export default {
                 item: "",
                 ship: `https://raw.githack.com/AzurAPI/azurapi-js-setup/master/images/skins/${this.name}/thumbnail.png`,
                 equip: `https://raw.githack.com/AzurAPI/azurapi-js-setup/master/images/equipments/${this.name.replace(" ", "_")}.png`
-            }
+            };
 
-            return url[this.type]
+            return url[this.type];
         }
     }
-}
+};
 </script>
