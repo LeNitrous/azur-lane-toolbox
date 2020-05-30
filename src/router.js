@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Passthrough from "../views/Passthrough.vue";
-import NotFound from "../views/NotFound.vue";
+import Home from "./views/Home.vue";
+import Passthrough from "./views/Passthrough.vue";
+import NotFound from "./views/NotFound.vue";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -19,7 +19,7 @@ const router = new VueRouter({
             children: [
                 {
                     path: "search",
-                    component: () => import("../views/Search/Ships.vue"),
+                    component: () => import("./views/Ships/Search.vue"),
                     meta: { title: "Search Ships" }
                 }
             ]
