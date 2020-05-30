@@ -5,6 +5,9 @@ $family-sans-serif: "Jura", sans-serif;
 
 $primary: #374980;
 
+$input-color: white;
+$input-background-color: transparent;
+
 $link: lighten($primary, 30%);
 $link-hover: lighten($primary, 20%);
 
@@ -39,6 +42,9 @@ $subtitle-color: white;
 
 @import "~bulma/sass/utilities/_all";
 @import "~bulma";
+
+$dropdown-mobile-breakpoint: $tablet;
+
 @import "~buefy/src/scss/buefy";
 
 html {
@@ -72,6 +78,17 @@ body {
 
     &.has-text-right {
         justify-content: flex-end;
+    }
+}
+
+.input {
+    border-style: none none solid none;
+    border-color: white;
+
+    &:focus, &:active {
+        border-color: $grey;
+        outline: none;
+        box-shadow: none;
     }
 }
 

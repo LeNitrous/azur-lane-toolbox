@@ -1,17 +1,22 @@
 <template>
-    <div
-        :class="['item-square-icon', `rarity-${rarity}`]"
-        :style="{ '--item-icon': `url(${getIcon()})` }"
-    />
+    <div :class="{ 'item-square-icon': true, [`rarity-${rarity}`]: true, 'research': research }">
+        <div
+            v-lazy:background-image="image"
+            class="item-image"
+        />
+    </div>
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/constants.scss";
+
 .item-square-icon {
 
     $icon-size: 15%;
 
     width: $icon-size;
     height: 0;
+    position: relative;
     padding-bottom: $icon-size;
     display: inline-block;
     margin: 0.3rem;
@@ -20,43 +25,42 @@
                 "rare",
                 "elite",
                 "sr",
-                "ssr",
-                "sr_research",
-                "ssr_research";
+                "ssr";
 
     @for $i from 1 through length($rarities) {
         $rarity: nth($rarities, $i);
 
         &.rarity-#{$i} {
-            background: var(--item-icon),
-                        url("../assets/images/item/bg_#{$rarity}.png");
+            background: url("../assets/images/item/bg_#{$rarity}.png");
 
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
 
-            border: 3px solid transparent;
-            border-image-slice: 10%;
-            border-image-repeat: round;
+            outline: 3px solid nth($rarity-colors, $i);
 
-            @if $rarity == "common" or
-                $rarity == "ssr" or
-                $rarity == "sr_research" or
-                $rarity == "ssr_research" {
-                border-image-source: url("../assets/images/item/frame.png");
-            } @else {
-                border-image-source: url("../assets/images/item/frame_#{$rarity}.png");
+            @if $rarity == "sr" or $rarity == "ssr" {
+                &.research {
+                    background: url("../assets/images/item/bg_#{$rarity}_research.png");
+                }
             }
         }
     }
 
-    .item-icon {
+    .item-image {
         width: 100%;
         padding-bottom: 100%;
-        background-size: contain;
+        background-size: cover;
         background-position: center;
-    }
+        -webkit-box-shadow: inset 0px 0px 15px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 15px -5px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 15px -5px rgba(0,0,0,0.75);
 
+        &[lazy=loading] {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+    }
 }
 </style>
 
@@ -76,11 +80,19 @@ export default {
             type: Number,
             default: 1
         },
-        frameType: {
-            type: String,
-            default: "rarity",
-            validator: (value) => ["rarity", "skin", "blueprint", "oath", "note", "gift", "npc"].indexOf(value) !== -1
+        research: {
+            type: Boolean,
+            default: false
         }
+    },
+    data: function() {
+        return {
+            image: {
+                src: this.getIcon(),
+                error: require("../assets/images/item/unknown_ship.png"),
+                loading: require("../assets/images/loader.gif")
+            }
+        };
     },
     methods: {
         getIcon: function() {

@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueLazyLoad from "vue-lazyload";
 import App from "./App.vue";
 import Buefy from "buefy";
 import router from "./router";
@@ -6,6 +7,7 @@ import "./assets/styles/main.scss";
 
 Vue.config.productionTip = false;
 
+Vue.use(VueLazyLoad, { observer: true });
 Vue.use(Buefy, { defaultIconPack: "fas" });
 
 new Vue({

@@ -19,7 +19,7 @@ const router = new VueRouter({
             children: [
                 {
                     path: "search",
-                    component: () => import("./views/Ships/Search.vue"),
+                    component: () => import("./views/Ships/ShipSearch.vue"),
                     meta: { title: "Search Ships" }
                 }
             ]
